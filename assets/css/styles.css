@@ -7,7 +7,9 @@
 /* ===== FONTS ===== */
 @font-face {
     font-family: 'Cascadia Code';
-    src: url('https://cdn.jsdelivr.net/npm/@fontsource/cascadia-code@4.2.1/files/cascadia-code-latin-400-normal.woff2') format('woff2');
+    src: local('Cascadia Code'),
+         local('CaskaydiaCove Nerd Font'),
+         url('https://fonts.cdnfonts.com/s/29131/Cascadia.woff') format('woff');
     font-weight: 400 700;
     font-style: normal;
     font-display: swap;
@@ -242,7 +244,7 @@ a:hover {
     content: '';
     position: absolute;
     inset: 0;
-    background: url('https://www.coreyh.com/static/c1758bcecaae2a1d33573b0604d9196a/99117/helicopter2.avif') center bottom / cover no-repeat;
+    background: url('../images/helicopter.jpg') center bottom / cover no-repeat;
     opacity: 0.06;
     filter: grayscale(100%) blur(1px);
     pointer-events: none;

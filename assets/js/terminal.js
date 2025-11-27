@@ -397,7 +397,7 @@ const commands = {
       return `
   <span class="bold white">The Helicopter Photo</span>
 
-  <img src="https://www.coreyh.com/static/c1758bcecaae2a1d33573b0604d9196a/99117/helicopter2.avif" alt="Young Corey with helicopter" style="max-width: 100%; height: auto; border-radius: 4px; margin: 8px 0;" />
+  <img src="assets/images/helicopter.jpg" alt="Young Corey with helicopter" style="max-width: 100%; height: auto; border-radius: 4px; margin: 8px 0;" />
 
   That's me as a kid, absolutely thrilled about a helicopter landing nearby.
   The excitement hasn't changed — just the helicopters.
