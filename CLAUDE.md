@@ -32,8 +32,6 @@ This is intentionally simple and dependency-free.
 │   ├── js/terminal.js  # Terminal logic and commands
 │   └── images/         # Favicon, og:image, etc.
 ├── blog/               # Blog posts (markdown)
-├── docs/
-│   └── PRD.md          # Product requirements document
 ├── create-post.js      # Script to generate new blog posts
 ├── README.md           # Public readme
 ├── CLAUDE.md           # This file - AI context
@@ -116,7 +114,6 @@ Some portfolio company descriptions are pending:
 3. No frameworks needed - vanilla JS is intentional and preferred
 4. The music player is a fun feature - keep it
 5. Test locally with `npm run serve` before pushing changes
-6. The PRD in docs/PRD.md has the full content spec if needed
 
 ## Corey's Info Quick Reference
 
