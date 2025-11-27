@@ -1,8 +1,17 @@
-/* 
+/*
  * CLI Terminal Styles
- * Ben Tossell's personal website
- * Based on Factory Design System
+ * Corey Henderson's personal website
+ * Windows Terminal / Alacritty inspired
  */
+
+/* ===== FONTS ===== */
+@font-face {
+    font-family: 'Cascadia Code';
+    src: url('https://cdn.jsdelivr.net/npm/@fontsource/cascadia-code@4.2.1/files/cascadia-code-latin-400-normal.woff2') format('woff2');
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
 
 /* ===== RESET ===== */
 *, *::before, *::after {
@@ -13,7 +22,7 @@
 
 /* ===== BASE VARIABLES ===== */
 :root {
-    --font-mono: 'Berkeley Mono', 'SF Mono', Monaco, Consolas, 'Liberation Mono', Courier, monospace;
+    --font-mono: 'CaskaydiaCove Nerd Font', 'Cascadia Code', 'Consolas', 'SF Mono', Monaco, 'Liberation Mono', Courier, monospace;
     --font-size: 14px;
     --line-height: 1.5;
     
@@ -235,85 +244,141 @@ a:hover {
     max-height: 700px;
     display: flex;
     flex-direction: column;
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-sm);
     border: 1px solid var(--border-strong);
     background: var(--bg-secondary);
-    box-shadow: 
+    box-shadow:
         0 0 0 1px var(--border),
         0 25px 50px -12px rgba(0, 0, 0, 0.5);
     overflow: hidden;
 }
 
-/* ===== TITLE BAR ===== */
+/* ===== TITLE BAR (Windows Terminal Style) ===== */
 .terminal-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: var(--space-sm) var(--space-md);
+    height: 32px;
     background: var(--bg-tertiary);
     border-bottom: 1px solid var(--border);
     user-select: none;
+    font-size: 12px;
 }
 
-.title-buttons {
+.title-left {
     display: flex;
-    gap: 8px;
+    align-items: center;
+    gap: var(--space-sm);
+    padding-left: var(--space-sm);
+    color: var(--text-secondary);
 }
 
-.title-btn {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: none;
-    cursor: default;
+.title-icon {
+    font-size: 14px;
+    opacity: 0.7;
 }
-
-.title-btn.close { background: var(--title-btn-close); }
-.title-btn.minimize { background: var(--title-btn-min); }
-.title-btn.maximize { background: var(--title-btn-max); }
 
 .title-text {
-    font-size: 12px;
     color: var(--text-secondary);
-    flex: 1;
-    text-align: center;
+    display: none;
 }
 
-.title-link {
-    color: var(--accent);
-    text-decoration: none;
-    transition: color 0.15s ease;
-}
-
-.title-link:hover {
-    color: var(--accent-hover);
-    text-decoration: underline;
-}
-
-.title-actions {
+/* Windows Terminal Tabs */
+.title-tabs {
     display: flex;
-    gap: var(--space-sm);
+    align-items: center;
+    flex: 1;
+    height: 100%;
+    padding-left: var(--space-sm);
 }
 
-.help-btn {
-    width: 24px;
-    height: 24px;
+.title-tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 100%;
+    padding: 0 var(--space-sm);
+    background: var(--bg-secondary);
+    border: none;
+    border-top: 2px solid var(--accent);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    cursor: default;
+    position: relative;
+}
+
+.title-tab .tab-icon {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.title-tab .tab-name {
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.title-tab .tab-close {
+    opacity: 0;
+    font-size: 14px;
+    color: var(--text-muted);
+    transition: opacity 0.15s ease;
+}
+
+.title-tab:hover .tab-close {
+    opacity: 1;
+}
+
+.title-tab-new {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 28px;
+    height: 100%;
     background: transparent;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
+    border: none;
     color: var(--text-muted);
-    font-size: 12px;
+    font-size: 16px;
     cursor: pointer;
     transition: all 0.15s ease;
 }
 
-.help-btn:hover {
+.title-tab-new:hover {
     background: var(--bg-hover);
     color: var(--text-primary);
-    border-color: var(--border-strong);
+}
+
+/* Windows Control Buttons */
+.title-controls {
+    display: flex;
+    height: 100%;
+}
+
+.win-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 100%;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-family: 'Segoe MDL2 Assets', var(--font-mono);
+    cursor: pointer;
+    transition: background 0.1s ease;
+}
+
+.win-btn:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+.win-btn.win-close:hover {
+    background: #c42b1c;
+    color: white;
 }
 
 /* ===== TERMINAL BODY ===== */
@@ -505,7 +570,7 @@ a:hover {
     padding: var(--space-xs) var(--space-md);
     background: transparent;
     border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
+    border-radius: 2px;
     color: var(--text-muted);
     font-family: var(--font-mono);
     font-size: 12px;
@@ -621,34 +686,46 @@ a:hover {
     .terminal-wrapper {
         padding: var(--space-md);
     }
-    
+
     .terminal {
         height: 85vh;
         max-height: none;
-        border-radius: var(--radius-md);
+        border-radius: var(--radius-sm);
     }
-    
+
     .ascii-art {
         font-size: 8px;
         white-space: pre;
         overflow-x: auto;
     }
-    
+
     .command-shortcuts {
         flex-wrap: wrap;
     }
-    
+
     .terminal-status {
         font-size: 10px;
     }
-    
+
     .status-center {
         display: none;
     }
-    
+
     .music-player {
         right: var(--space-md);
         bottom: var(--space-md);
+    }
+
+    .title-tabs {
+        display: none;
+    }
+
+    .title-text {
+        display: block;
+    }
+
+    .win-btn {
+        width: 40px;
     }
 }
 
@@ -656,39 +733,48 @@ a:hover {
     :root {
         --font-size: 13px;
     }
-    
+
     .terminal-wrapper {
         padding: var(--space-sm);
     }
-    
+
     .terminal {
         height: 90vh;
-        border-radius: var(--radius-sm);
+        border-radius: 2px;
     }
-    
+
+    .title-left {
+        flex: 1;
+    }
+
     .title-text {
+        display: block;
         font-size: 11px;
     }
-    
+
     .ascii-art {
         font-size: 5px;
         letter-spacing: -1px;
         white-space: pre;
         overflow-x: auto;
     }
-    
+
     .cmd-shortcut {
         padding: var(--space-xs) var(--space-sm);
         font-size: 11px;
     }
-    
+
     .terminal-status {
         font-size: 9px;
         padding: var(--space-xs) var(--space-sm);
     }
-    
+
     .status-left {
         display: none;
+    }
+
+    .win-btn {
+        width: 36px;
     }
 }
 
@@ -705,7 +791,9 @@ a:hover {
 }
 
 .cmd-shortcut:focus-visible,
-.help-btn:focus-visible,
+.win-btn:focus-visible,
+.title-tab:focus-visible,
+.title-tab-new:focus-visible,
 .music-btn:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;

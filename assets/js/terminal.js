@@ -546,7 +546,11 @@ async function executeCommand(input) {
   state.commandCount++;
 
   const parts = trimmed.split(/\s+/);
-  const cmd = parts[0].toLowerCase();
+  let cmd = parts[0].toLowerCase();
+  // Allow /command syntax (strip leading slash)
+  if (cmd.startsWith('/')) {
+    cmd = cmd.slice(1);
+  }
   const args = parts.slice(1);
 
   // Command text in accent color
@@ -699,10 +703,6 @@ document.addEventListener("DOMContentLoaded", () => {
         input.focus();
       }
     });
-  });
-
-  document.getElementById("help-btn")?.addEventListener("click", async () => {
-    await executeCommand("help");
   });
 
   boot();
