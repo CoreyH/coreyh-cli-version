@@ -23,7 +23,7 @@ const vibes = [
   "iterating",
   "deep work",
   "async mode",
-  "biking badly",
+  "biking to work",
   "surviving winter",
   "training agents",
   "prompt engineering",
@@ -84,7 +84,7 @@ const commands = {
   gets about 500k visitors a month. It was my full-time job for nearly a decade;
   now I run it solo on Saturdays with a lot of AI help.
 
-  American by origin, reluctant cyclist by geography.
+  American by origin, enthusiastic cyclist by choice.
 
   type <span class="cmd">now</span> to see what i'm currently up to.
 `;
@@ -319,7 +319,8 @@ const commands = {
   several Danish winters, and I've mostly accepted that 4pm darkness is a
   personality trait.
 
-  We live near the harbor. I bike everywhere, badly. The coffee is excellent,
+  We live near the harbor. I bike everywhere — it's one of my favorite things
+  about living here. Biked everywhere I've lived, but Copenhagen makes it easy. The coffee is excellent,
   the bureaucracy is efficient, and I still say "tomato" wrong.
 
   If you're thinking about relocating to Copenhagen for work, happy to chat
