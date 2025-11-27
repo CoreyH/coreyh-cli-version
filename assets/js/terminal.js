@@ -398,8 +398,8 @@ const commands = {
 
   <img src="assets/images/helicopter.jpg" alt="Young Corey with helicopter" style="max-width: 100%; height: auto; border-radius: 4px; margin: 8px 0;" />
 
-  That's me as a kid, absolutely thrilled about a helicopter landing nearby.
-  The excitement hasn't changed — just the helicopters.
+  Pasadena, around 1980. That's all I know.
+
 `;
     },
   },
