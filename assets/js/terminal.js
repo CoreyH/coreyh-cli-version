@@ -252,13 +252,12 @@ const commands = {
 
   Things I have open constantly:
 
+  • <a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a> — Daily driver AI
+  • <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a> — Used for when I want the most "human" responses and opinions
   • <a href="https://cursor.sh" target="_blank" rel="noopener">Cursor</a> — AI-native editor, where most of my code happens now
-  • <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a> — thinking partner, code reviewer, occasional therapist
-  • <a href="https://n8n.io" target="_blank" rel="noopener">n8n</a> — glue for everything, self-hosted
-  • <a href="https://notion.so" target="_blank" rel="noopener">Notion</a> — company wiki, personal notes, way too many databases
-  • <a href="https://linear.app" target="_blank" rel="noopener">Linear</a> — when I need real project tracking
+  • <a href="https://n8n.io" target="_blank" rel="noopener">n8n</a> — glue for everything, using both self-hosted and cloud
   • <a href="https://strava.com" target="_blank" rel="noopener">Strava</a> — accountability for running (results vary)
-  • Terminal — still faster than clicking for most things
+  
 
   <span class="muted">Hardware:</span> Windows + WSL2 as main machine, Framework laptop for travel,
   an Unraid server in the closet running too many containers.
