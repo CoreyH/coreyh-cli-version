@@ -1,19 +1,19 @@
 {
-  "name": "ben-tossell-website",
+  "name": "coreyh-cli-website",
   "version": "1.0.0",
-  "description": "Ben Tossell's personal website with blog functionality",
+  "description": "Corey Henderson's CLI-style personal website",
   "main": "index.html",
   "scripts": {
     "new-post": "node create-post.js",
     "serve": "python3 -m http.server 8000"
   },
   "keywords": [
-    "blog",
+    "cli",
+    "terminal",
     "personal-website",
-    "markdown",
     "static-site"
   ],
-  "author": "Ben Tossell",
+  "author": "Corey Henderson",
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {}

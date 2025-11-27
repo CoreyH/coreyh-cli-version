@@ -142,25 +142,52 @@
     --bg-secondary: #0a0a0a;
     --bg-tertiary: #111111;
     --bg-hover: #1a1a1a;
-    
+
     --text-primary: #ffffff;
     --text-secondary: #cccccc;
     --text-muted: #888888;
-    
+
     --accent: #ffffff;
     --accent-hover: #ffffff;
-    
+
     --border: #333333;
     --border-strong: #444444;
-    
+
     --success: #00ff00;
     --error: #ff0000;
     --warning: #ffff00;
     --link: #00ffff;
-    
+
     --title-btn-close: #ff0000;
     --title-btn-min: #ffff00;
     --title-btn-max: #00ff00;
+}
+
+/* ===== THEME: COPENHAGEN (Cool Nordic Winter) ===== */
+.theme-copenhagen {
+    --bg-primary: #0f1419;
+    --bg-secondary: #141a21;
+    --bg-tertiary: #1a222b;
+    --bg-hover: #232d3a;
+
+    --text-primary: #d8dee9;
+    --text-secondary: #9aa5b5;
+    --text-muted: #5c6773;
+
+    --accent: #81a1c1;
+    --accent-hover: #88c0d0;
+
+    --border: #2e3845;
+    --border-strong: #3b4754;
+
+    --success: #a3be8c;
+    --error: #bf616a;
+    --warning: #ebcb8b;
+    --link: #88c0d0;
+
+    --title-btn-close: #bf616a;
+    --title-btn-min: #ebcb8b;
+    --title-btn-max: #a3be8c;
 }
 
 /* ===== BASE STYLES ===== */

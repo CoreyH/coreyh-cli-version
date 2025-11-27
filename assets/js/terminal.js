@@ -2,41 +2,36 @@
 const state = {
   history: [],
   historyIndex: -1,
-  theme: localStorage.getItem("terminal-theme") || "midnight",
+  theme: localStorage.getItem("terminal-theme") || "copenhagen",
   commandCount: 0,
 };
 
-// Fun vibes that rotate (changes every 8 seconds + on each command)
+// Fun vibes that rotate
 const vibes = [
   "building things",
   "shipping fast",
-  "caffeinated ☕",
+  "caffeinated",
   "in the zone",
   "thinking...",
   "exploring ideas",
-  "creating chaos",
-  "vibing",
   "debugging life",
   "ctrl+c ctrl+v",
   "tabs not spaces",
   "git push -f",
   "rm -rf doubts",
   "npm install coffee",
-  "making things",
   "iterating",
-  "learning in public",
-  "writing code",
-  "breaking things",
-  "fixing things",
-  "one more feature...",
-  "refactoring",
   "deep work",
-  "inbox zero (jk)",
   "async mode",
+  "biking badly",
+  "surviving winter",
+  "training agents",
+  "prompt engineering",
+  "one more commit...",
 ];
 
 // Available themes
-const themes = ["midnight", "phosphor", "amber", "matrix", "contrast"];
+const themes = ["copenhagen", "midnight", "phosphor", "amber", "matrix", "contrast"];
 
 // Commands registry
 const commands = {
@@ -48,13 +43,19 @@ const commands = {
         '  <span class="bold white">Available Commands</span>',
         "",
         '  <span class="cmd">help</span>          show this help message',
-        '  <span class="cmd">whoami</span>        who is ben tossell',
-        '  <span class="cmd">now</span>           what im doing',
-        '  <span class="cmd">prev</span>          previous work',
-        '  <span class="cmd">investments</span>   my investments',
+        '  <span class="cmd">whoami</span>        who is corey',
+        '  <span class="cmd">now</span>           what i\'m focused on right now',
+        '  <span class="cmd">ventures</span>      KRING portfolio companies',
+        '  <span class="cmd">cosmica</span>       internal AI/ops stack at KRING',
+        '  <span class="cmd">recordsetter</span>  my other company',
+        '  <span class="cmd">projects</span>      things i\'ve built',
+        '  <span class="cmd">agents</span>        AI agents running my life',
+        '  <span class="cmd">stack</span>         dev stack & infrastructure',
         '  <span class="cmd">tools</span>         tools i use daily',
-        '  <span class="cmd">models</span>        ai models i use',
-        '  <span class="cmd">contact</span>       find me',
+        '  <span class="cmd">speaking</span>      talks & workshops',
+        '  <span class="cmd">writing</span>       essays & digital garden',
+        '  <span class="cmd">dk</span>            life in denmark',
+        '  <span class="cmd">contact</span>       how to reach me',
         '  <span class="cmd">theme</span>         list available themes',
         '  <span class="cmd">theme [name]</span>  switch theme',
         '  <span class="cmd">clear</span>         clear the terminal',
@@ -67,20 +68,23 @@ const commands = {
     },
   },
   whoami: {
-    desc: "who is ben tossell",
+    desc: "who is corey",
     fn: () => {
       return `
-  <span class="bold white">Ben Tossell</span> <span class="muted">[2025]</span>
-  ┌────────────────────────────────────────────────┐
-  │  head of devrel      <a href="https://factory.ai" target="_blank" rel="noopener">Factory</a>                   │
-  │  investor & writer   <a href="https://bensbites.com" target="_blank" rel="noopener">Ben's Bites</a>               │
-  │  twin dad                                      │
-  └────────────────────────────────────────────────┘
+  <span class="bold white">Corey Henderson</span>
 
-  i'm technically not technical, but technical enough to not be
-  truly non-technical.
+  I'm Corey Henderson — Partner & CTO at KRING, a venture studio in Copenhagen
+  that builds startups in health tech and green tech.
 
-  technical, non-technical member of staff.
+  Day-to-day I help founders ship real products before we invest, run tech across
+  our portfolio companies, and do a lot of hands-on building myself. 30 years of
+  making software, still figuring out how to do it properly.
+
+  I also run RecordSetter — a world records platform I co-founded in 2008 that
+  gets about 500k visitors a month. It was my full-time job for nearly a decade;
+  now I run it solo on Saturdays with a lot of AI help.
+
+  American by origin, reluctant cyclist by geography.
 
   type <span class="cmd">now</span> to see what i'm currently up to.
 `;
@@ -91,50 +95,256 @@ const commands = {
     fn: () => commands.whoami.fn(),
   },
   now: {
-    desc: "current activities",
+    desc: "current focus",
     fn: () => {
       return `
-  <span class="bold white">now:</span>
+  <span class="bold white">What I'm focused on (late 2025):</span>
 
-  • about to have baby number 3
-  • shipping on github <a href="https://github.com/bentossell" target="_blank" rel="noopener">/bentossell</a> & <a href="https://github.com/factory-ben" target="_blank" rel="noopener">/factory-ben</a>
-  • investing $100k into devtools & infra
-  • writing <a href="https://bensbites.com" target="_blank" rel="noopener">ben's bites</a> newsletter
+  • Building AI-first products at KRING — shipping v1s before term sheets
+  • Cosmica: our internal ops stack for dashboards, agents, and portfolio data
+  • Reinventing RecordSetter for 2025/2026 — certificates, creator tools, AI triage
+  • Giving talks on moving from "vibe coding" to actual systems thinking
+  • Training a small army of AI agents to run my life so I can bike more
 `;
     },
   },
-  prev: {
-    desc: "previous work",
+  ventures: {
+    desc: "KRING portfolio",
     fn: () => {
       return `
-  <span class="bold white">previously:</span>
+  <span class="bold white">KRING Ventures</span>
 
-  • founder, makerpad - sold to zapier (in 18 months) [2019-2021]
-  • sequoia & a16z scout [2021-2025]
-  • product hunt [2015-2017]
+  KRING is a Copenhagen-based venture studio + fund. We build impact startups
+  in health and green tech.
+
+  Current portfolio companies I work with:
+
+  • <span class="accent">Conceivio</span> — fertility platform for clinics, AI-powered workflows
+  • <span class="accent">Spectia</span> — [description pending]
+  • <span class="accent">Ryma</span> — [description pending]
+  • <span class="accent">Orklys</span> — energy community SaaS for local energy sharing
+  • <span class="accent">Aescolab</span> — [description pending]
+  • <span class="accent">Triba</span> — [description pending]
+  • <span class="accent">Carelog</span> — [description pending]
+
+  My job: make sure we can go from thesis to live product with tiny,
+  AI-augmented teams. I'm hands-on across all of them.
+
+  → <a href="https://kring.dk" target="_blank" rel="noopener">kring.dk</a>
 `;
     },
   },
-  history: {
-    desc: "alias for prev",
-    fn: () => commands.prev.fn(),
+  cosmica: {
+    desc: "KRING internal ops",
+    fn: () => {
+      return `
+  <span class="bold white">Cosmica</span>
+
+  Cosmica is the internal operating system we're building at KRING.
+
+  Yes, the grandiose name is intentional.
+
+  Pieces currently in motion:
+
+  • <span class="accent">CoSteer</span> — fund + studio dashboards, SFDR impact metrics, portfolio KPIs
+  • <span class="accent">Launch scaffolding</span> — domain, repo, basic app, analytics, legal templates
+  • <span class="accent">AI Chief-of-Staff</span> — agents that summarize meetings, chase actions, nudge founders
+  • <span class="accent">Translation pipelines</span> — Strapi + DeepL + LLM review for localized content
+  • <span class="accent">Data spine</span> — Postgres + event pipelines feeding everything above
+
+  Philosophy: small human team, heavy AI tooling, deliberately boring infrastructure.
+`;
+    },
+  },
+  recordsetter: {
+    desc: "world records platform",
+    fn: () => {
+      return `
+  <span class="bold white">RecordSetter</span>
+
+  RecordSetter is a world records platform I co-founded in 2008.
+
+  For almost a decade it was my full-time job — we raised VC, built a team,
+  got millions of users, partnered with brands and TV shows. It's been through
+  several reinventions.
+
+  Now I run it solo. About 500k people visit every month. I spend my Saturdays
+  pushing it forward, with a growing crew of AI agents handling triage,
+  verification, and operations.
+
+  Current focus: making it stupidly easy to get a verified record certificate
+  and "hype kit" that creators can actually use. Treating records as proof of
+  achievement that plugs into the creator economy.
+
+  It's my longest-running project and my favorite place to experiment.
+
+  → <a href="https://recordsetter.com" target="_blank" rel="noopener">recordsetter.com</a>
+`;
+    },
+  },
+  projects: {
+    desc: "things i've built",
+    fn: () => {
+      return `
+  <span class="bold white">Projects</span>
+
+  Things I build, maintain, or tinker with:
+
+  • <span class="accent">T.A.B.S.</span> — an n8n system that watches my computer activity + calendar
+    and writes time entries automatically. Mostly works.
+
+  • <span class="accent">Image Sifter</span> — GPU pipeline for sorting thousands of photos using
+    vision models. Dormant but real.
+
+  • <span class="accent">Various agentic dev experiments</span> — MCP setups, Claude Code workflows,
+    container-based agents for testing and shipping features.
+
+  • <span class="accent">RecordSetter certificate engine</span> — Node/FFmpeg stack for generating
+    shareable, brandable record certificates.
+`;
+    },
+  },
+  agents: {
+    desc: "AI agents running my life",
+    fn: () => {
+      return `
+  <span class="bold white">AI Agents</span>
+
+  AI agents currently doing work for me:
+
+  • <span class="accent">Run Coach</span> — pulls Strava data, nags me about easy miles and recovery
+  • <span class="accent">Email Triage</span> — surfaces what matters, drafts responses, archives noise
+  • <span class="accent">Voicemail Transcriber</span> — turns voice messages into readable text + summaries
+  • <span class="accent">TimeCop (T.A.B.S.)</span> — watches system activity and logs time to projects
+  • <span class="accent">Meeting Scribe</span> — summarizes calls, extracts action items
+
+  None of them are magic. All of them are n8n workflows and API calls held
+  together with duct tape. They save me hours every week.
+`;
+    },
+  },
+  stack: {
+    desc: "dev stack",
+    fn: () => {
+      return `
+  <span class="bold white">Tech Stack</span>
+
+  My current defaults for new projects:
+
+  <span class="muted">Frontend:</span>  Next.js, TypeScript, App Router, Tailwind
+  <span class="muted">Backend:</span>   Node LTS, Express or tRPC, Postgres when data matters
+  <span class="muted">Infra:</span>     Render, Cloudflare, Azure or GCP depending on the venture
+  <span class="muted">AI:</span>        Anthropic + OpenAI in the cloud, local runs on a 4060 Ti when needed
+  <span class="muted">Glue:</span>      n8n, GitHub Actions, devcontainers
+
+  <span class="muted">Development:</span> Cursor + Claude as primary coding partners, WSL2 on Windows,
+  occasionally macOS or Linux on a Framework laptop.
+
+  Philosophy: keep infrastructure boring so we can make the product interesting.
+`;
+    },
+  },
+  tools: {
+    desc: "tools i use",
+    fn: () => {
+      return `
+  <span class="bold white">Tools</span>
+
+  Things I have open constantly:
+
+  • <a href="https://cursor.sh" target="_blank" rel="noopener">Cursor</a> — AI-native editor, where most of my code happens now
+  • <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a> — thinking partner, code reviewer, occasional therapist
+  • <a href="https://n8n.io" target="_blank" rel="noopener">n8n</a> — glue for everything, self-hosted
+  • <a href="https://notion.so" target="_blank" rel="noopener">Notion</a> — company wiki, personal notes, way too many databases
+  • <a href="https://linear.app" target="_blank" rel="noopener">Linear</a> — when I need real project tracking
+  • <a href="https://strava.com" target="_blank" rel="noopener">Strava</a> — accountability for running (results vary)
+  • Terminal — still faster than clicking for most things
+
+  <span class="muted">Hardware:</span> Windows + WSL2 as main machine, Framework laptop for travel,
+  an Unraid server in the closet running too many containers.
+`;
+    },
+  },
+  speaking: {
+    desc: "talks & workshops",
+    fn: () => {
+      return `
+  <span class="bold white">Speaking</span>
+
+  I occasionally give talks on AI-first development and venture building.
+
+  Most recent:
+
+  <span class="accent">"From Vibe Coding to Systems Thinking: Agentic Dev for Real Products"</span>
+  Copenhagen Cursor Meetup, November 2025
+
+  The pitch: how to move from ad-hoc prompting to agents in containers,
+  with MCP and automated testing loops. Lessons from building real products.
+
+  If you're organizing something and this sounds relevant, reach out.
+`;
+    },
+  },
+  writing: {
+    desc: "essays & digital garden",
+    fn: () => {
+      return `
+  <span class="bold white">Writing</span>
+
+  I'm slowly building a digital garden — essays and notes that I tend
+  over time rather than publish-and-forget.
+
+  Topics I write about:
+  • AI-first development workflows
+  • Venture studio operations
+  • Running a company solo with AI help
+  • What 30 years of building software has taught me (still learning)
+
+  [Coming soon — migrating old blog posts and adding new pieces]
+
+  For now, I mostly post shorter thoughts on X/Twitter.
+`;
+    },
+  },
+  dk: {
+    desc: "life in denmark",
+    fn: () => {
+      return `
+  <span class="bold white">Life in Denmark</span>
+
+  American in Copenhagen since 2020.
+
+  I moved here with my family for what was supposed to be a year or two.
+  Five years later we're still here. The kids bike to school, we've survived
+  several Danish winters, and I've mostly accepted that 4pm darkness is a
+  personality trait.
+
+  We live near the harbor. I bike everywhere, badly. The coffee is excellent,
+  the bureaucracy is efficient, and I still say "tomato" wrong.
+
+  If you're thinking about relocating to Copenhagen for work, happy to chat
+  about the realities.
+`;
+    },
   },
   contact: {
-    desc: "find me",
+    desc: "how to reach me",
     fn: () => {
       return `
-  <span class="bold white">contact:</span>
+  <span class="bold white">Contact</span>
 
-  • <a href="https://x.com/bentossell" target="_blank" rel="noopener">twitter/x</a>
-  • <a href="https://linkedin.com/in/ben-tossell-70453537" target="_blank" rel="noopener">linkedin</a>
-  • <a href="https://github.com/bentossell" target="_blank" rel="noopener">github [personal]</a>
-  • <a href="https://discord.gg/zuudFXxg69" target="_blank" rel="noopener">droid discord</a>
+  Best ways to reach me:
+
+  • <a href="https://www.linkedin.com/in/Coreyh/" target="_blank" rel="noopener">LinkedIn</a>
+  • <a href="https://x.com/coreyh" target="_blank" rel="noopener">X/Twitter</a>
+  • <a href="https://github.com/CoreyH" target="_blank" rel="noopener">GitHub</a>
+
+  I'm not on Calendly. Email or DM is best — I have to be dragged into meetings.
+
+  If you're a founder building health tech or green tech and want to jam on
+  product, AI workflows, or what working with KRING looks like, reach out.
 `;
     },
-  },
-  social: {
-    desc: "alias for contact",
-    fn: () => commands.contact.fn(),
   },
   theme: {
     desc: "change theme",
@@ -167,52 +377,6 @@ const commands = {
       return "";
     },
   },
-  investments: {
-    desc: "investment portfolio",
-    fn: () => {
-      return `
-  <span class="bold white">Investments</span>
-
-  • <a href="https://supabase.com" target="_blank" rel="noopener">supabase</a> <span class="muted">[seed]</span> → <span class="success">$5BN</span>
-  • <a href="https://gamma.app" target="_blank" rel="noopener">gamma</a> <span class="muted">[seed+ - a16z scout]</span> → <span class="success">$2.3BN</span> <span class="muted">[a16z led]</span>
-  • <a href="https://etched.com" target="_blank" rel="noopener">etched</a> <span class="muted">[seed+]</span> → <span class="success">$2.5BN</span>
-  • <a href="https://scribe.how" target="_blank" rel="noopener">scribe</a> <span class="muted">[seed]</span> → <span class="success">$1.3BN</span>
-  • <a href="https://factory.ai" target="_blank" rel="noopener">factory</a> <span class="muted">[seed]</span>
-  • <a href="https://sfcompute.com" target="_blank" rel="noopener">sf compute</a> <span class="muted">[pre-seed]</span>
-  • <a href="https://flutterflow.io" target="_blank" rel="noopener">flutterflow</a> <span class="muted">[seed]</span>
-  • <a href="https://wordware.ai" target="_blank" rel="noopener">wordware</a> <span class="muted">[pre-seed]</span>
-  • <a href="https://pika.art" target="_blank" rel="noopener">pika</a> <span class="muted">[series A]</span>
-  • <a href="https://crewai.com" target="_blank" rel="noopener">crewai</a> <span class="muted">[seed]</span>
-  • <a href="https://julius.ai" target="_blank" rel="noopener">julius</a> <span class="muted">[pre-seed]</span>
-`;
-    },
-  },
-  tools: {
-    desc: "tools i use",
-    fn: () => {
-      return `
-  <span class="bold white">tools:</span>
-
-  • <a href="https://factory.ai" target="_blank" rel="noopener">Factory</a> <span class="accent">[droid]</span>
-  • <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
-  • <a href="https://linear.app" target="_blank" rel="noopener">Linear</a>
-  • <a href="https://granola.ai" target="_blank" rel="noopener">Granola</a>
-  • <a href="https://ghostty.org" target="_blank" rel="noopener">Ghostty</a>
-`;
-    },
-  },
-  models: {
-    desc: "ai models i use",
-    fn: () => {
-      return `
-  <span class="bold white">models:</span>
-
-  • opus 4.5 <span class="muted">[default model]</span>
-  • sonnet 4.5 <span class="muted">[usual daily driver]</span>
-  • gpt 5.1-codex <span class="muted">[bug fixes/code review]</span>
-`;
-    },
-  },
   music: {
     desc: "toggle music player",
     fn: () => {
@@ -226,10 +390,16 @@ const commands = {
       return '\n  <span class="error">music player not available</span>\n';
     },
   },
+  // Fun easter eggs
   sudo: {
     desc: "nice try",
     fn: () =>
-      '\n  <span class="error">nice try, but you don\'t have sudo access here.</span>\n',
+      '\n  <span class="error">you\'re not the boss of me.</span>\n',
+  },
+  hierarches: {
+    desc: "nice try",
+    fn: () =>
+      '\n  <span class="muted">nice try.</span>\n',
   },
   rm: {
     desc: "nice try",
@@ -257,7 +427,7 @@ const commands = {
   ls: {
     desc: "list files",
     fn: () =>
-      '\n  README.md  investments.md  tools.md\n\n  <span class="muted">try: whoami, now, investments, tools</span>\n',
+      '\n  README.md  ventures.md  tools.md  agents.md\n\n  <span class="muted">try: whoami, now, ventures, recordsetter</span>\n',
   },
   cat: {
     desc: "cat file",
@@ -269,11 +439,14 @@ const commands = {
       if (file.includes("readme")) {
         return commands.whoami.fn();
       }
-      if (file.includes("investment")) {
-        return commands.investments.fn();
+      if (file.includes("venture")) {
+        return commands.ventures.fn();
       }
       if (file.includes("tool")) {
         return commands.tools.fn();
+      }
+      if (file.includes("agent")) {
+        return commands.agents.fn();
       }
       return `\n  <span class="error">cat: ${args[0]}: no such file</span>\n`;
     },
@@ -284,7 +457,7 @@ const commands = {
   },
   pwd: {
     desc: "print working directory",
-    fn: () => "\n  /home/ben\n",
+    fn: () => "\n  /home/corey\n",
   },
   echo: {
     desc: "echo text",
@@ -297,23 +470,17 @@ const commands = {
   neofetch: {
     desc: "system info",
     fn: () => `
-  <span class="accent">       _</span>          ben@tossell
-  <span class="accent">      (_)</span>         -----------
+  <span class="accent">       _</span>          corey@henderson
+  <span class="accent">      (_)</span>         ---------------
   <span class="accent">   ___ _  ___</span>     OS: Human 1.0
-  <span class="accent">  / __| |/ _ \\</span>    Host: Earth
+  <span class="accent">  / __| |/ _ \\</span>    Host: Copenhagen
   <span class="accent">  \\__ \\ |  __/</span>    Kernel: Coffee-powered
-  <span class="accent">  |___/_|\\___|</span>    Uptime: ${getAge()} years
+  <span class="accent">  |___/_|\\___|</span>    Uptime: 30+ years coding
                     Shell: bash
-                    Terminal: bentossell
+                    Terminal: coreyh-cli
 `,
   },
 };
-
-function getAge() {
-  const birth = new Date(1990, 7, 21);
-  const now = new Date();
-  return Math.floor((now - birth) / (365.25 * 24 * 60 * 60 * 1000));
-}
 
 function clearLastLine() {
   const output = document.getElementById("output");
@@ -350,15 +517,15 @@ function cycleTheme() {
   scrollToBottom();
 }
 
-function updateUKTime() {
+function updateCPHTime() {
   const timeEl = document.getElementById("status-time");
   if (timeEl) {
-    const ukTime = new Date().toLocaleTimeString("en-GB", {
-      timeZone: "Europe/London",
+    const cphTime = new Date().toLocaleTimeString("en-DK", {
+      timeZone: "Europe/Copenhagen",
       hour: "2-digit",
       minute: "2-digit",
     });
-    timeEl.textContent = ukTime + " UK";
+    timeEl.textContent = "CPH " + cphTime;
   }
 }
 
@@ -382,9 +549,9 @@ async function executeCommand(input) {
   const cmd = parts[0].toLowerCase();
   const args = parts.slice(1);
 
-  // Command text in orange
+  // Command text in accent color
   appendOutput(
-    `<span class="prompt">∴</span> <span class="accent">${escapeHtml(trimmed)}</span>\n`,
+    `<span class="prompt">></span> <span class="accent">${escapeHtml(trimmed)}</span>\n`,
   );
 
   if (commands[cmd]) {
@@ -418,7 +585,7 @@ async function boot() {
   const lines = [
     "initializing terminal...",
     "loading modules... done",
-    "connecting to ben.tossell... connected",
+    "connecting to corey.henderson... connected",
     "",
   ];
 
@@ -428,18 +595,19 @@ async function boot() {
     scrollToBottom();
   }
 
-  output.innerHTML += `<span class="accent ascii-art">  ██████╗ ███████╗███╗   ██╗  ████████╗ ██████╗ ███████╗███████╗███████╗██╗     ██╗
-  ██╔══██╗██╔════╝████╗  ██║  ╚══██╔══╝██╔═══██╗██╔════╝██╔════╝██╔════╝██║     ██║
-  ██████╔╝█████╗  ██╔██╗ ██║     ██║   ██║   ██║███████╗███████╗█████╗  ██║     ██║
-  ██╔══██╗██╔══╝  ██║╚██╗██║     ██║   ██║   ██║╚════██║╚════██║██╔══╝  ██║     ██║
-  ██████╔╝███████╗██║ ╚████║     ██║   ╚██████╔╝███████║███████║███████╗███████╗███████╗
-  ╚═════╝ ╚══════╝╚═╝  ╚═══╝     ╚═╝    ╚═════╝ ╚══════╝╚══════╝╚══════╝╚══════╝╚══════╝</span>
+  output.innerHTML += `<span class="accent ascii-art">   ██████╗ ██████╗ ██████╗ ███████╗██╗   ██╗██╗  ██╗
+  ██╔════╝██╔═══██╗██╔══██╗██╔════╝╚██╗ ██╔╝██║  ██║
+  ██║     ██║   ██║██████╔╝█████╗   ╚████╔╝ ███████║
+  ██║     ██║   ██║██╔══██╗██╔══╝    ╚██╔╝  ██╔══██║
+  ╚██████╗╚██████╔╝██║  ██║███████╗   ██║   ██║  ██║
+   ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝</span>
 `;
   await sleep(100);
 
   output.innerHTML += `
-  builder. investor. dad.
-  welcome to my cli. type <span class="cmd">help</span> to see commands.
+  partner/cto at kring. also recordsetter. copenhagen.
+  welcome. type <span class="cmd">help</span> or just start typing.
+  <span class="muted">hint: try whoami</span>
 
 `;
   scrollToBottom();
@@ -457,10 +625,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("command-form");
 
   setTheme(state.theme);
-  updateUKTime();
+  updateCPHTime();
   updateVibe();
-  setInterval(updateUKTime, 1000);
-  setInterval(updateVibe, 8000); // Change vibe every 8 seconds
+  setInterval(updateCPHTime, 1000);
+  setInterval(updateVibe, 8000);
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -497,7 +665,7 @@ document.addEventListener("DOMContentLoaded", () => {
           input.value = completions[0] + " ";
         } else if (completions.length > 1) {
           appendOutput(
-            `<span class="prompt">∴</span> <span class="accent">${value}</span>\n`,
+            `<span class="prompt">></span> <span class="accent">${value}</span>\n`,
           );
           appendOutput(
             `<span class="muted">${completions.join("  ")}</span>\n\n`,
@@ -511,7 +679,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (e.ctrlKey && e.key === "c") {
       e.preventDefault();
       appendOutput(
-        `<span class="prompt">∴</span> <span class="accent">${input.value}</span>^C\n\n`,
+        `<span class="prompt">></span> <span class="accent">${input.value}</span>^C\n\n`,
       );
       input.value = "";
     }
