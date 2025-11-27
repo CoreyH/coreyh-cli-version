@@ -130,7 +130,7 @@ const commands = {
   My job: make sure we can go from thesis to live product with tiny,
   AI-augmented teams. I'm hands-on across all of them.
 
-  → <a href="https://kring.dk" target="_blank" rel="noopener">kring.dk</a>
+  → <a href="https://kring.com" target="_blank" rel="noopener">kring.com</a>
 `;
     },
   },
@@ -389,6 +389,35 @@ const commands = {
           : "\n  music player hidden.\n";
       }
       return '\n  <span class="error">music player not available</span>\n';
+    },
+  },
+  helicopter: {
+    desc: "easter egg",
+    fn: () => {
+      return `
+  <span class="bold white">The Helicopter Photo</span>
+
+  <img src="https://www.coreyh.com/static/c1758bcecaae2a1d33573b0604d9196a/99117/helicopter2.avif" alt="Young Corey with helicopter" style="max-width: 100%; height: auto; border-radius: 4px; margin: 8px 0;" />
+
+  That's me as a kid, absolutely thrilled about a helicopter landing nearby.
+  The excitement hasn't changed — just the helicopters.
+`;
+    },
+  },
+  credits: {
+    desc: "site credits",
+    fn: () => {
+      return `
+  <span class="bold white">Credits</span>
+
+  This site is forked from <a href="https://www.bentossell.com/" target="_blank" rel="noopener">Ben Tossell's</a> open source CLI website.
+  Ben made the original — I just customized it for myself.
+
+  Thanks Ben!
+
+  → <a href="https://github.com/bentossell/bentossell" target="_blank" rel="noopener">Original repo</a>
+  → <a href="https://github.com/CoreyH/coreyh-cli-version" target="_blank" rel="noopener">This fork</a>
+`;
     },
   },
   // Fun easter eggs
@@ -704,6 +733,11 @@ document.addEventListener("DOMContentLoaded", () => {
         input.focus();
       }
     });
+  });
+
+  document.getElementById("credits-btn")?.addEventListener("click", async () => {
+    await executeCommand("credits");
+    input.focus();
   });
 
   boot();

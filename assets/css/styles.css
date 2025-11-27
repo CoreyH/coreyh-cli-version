@@ -235,6 +235,23 @@ a:hover {
     min-height: 100vh;
     padding: var(--space-lg);
     background: var(--bg-primary);
+    position: relative;
+}
+
+.terminal-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://www.coreyh.com/static/c1758bcecaae2a1d33573b0604d9196a/99117/helicopter2.avif') center bottom / cover no-repeat;
+    opacity: 0.06;
+    filter: grayscale(100%) blur(1px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.terminal-wrapper > * {
+    position: relative;
+    z-index: 1;
 }
 
 .terminal {
@@ -554,8 +571,31 @@ a:hover {
     color: var(--border-strong);
 }
 
-.status-model {
+.status-credits {
+    background: none;
+    border: none;
+    font-family: var(--font-mono);
+    font-size: inherit;
     color: var(--accent);
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.15s ease;
+}
+
+.status-credits:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+.status-easter-egg {
+    opacity: 0.3;
+    cursor: help;
+    font-size: 10px;
+    transition: opacity 0.2s ease;
+}
+
+.status-easter-egg:hover {
+    opacity: 1;
 }
 
 /* ===== COMMAND SHORTCUTS ===== */

@@ -136,7 +136,7 @@ Current portfolio companies I work with:
 My job: make sure we can go from thesis to live product with tiny, 
 AI-augmented teams. I'm hands-on across all of them.
 
-→ kring.dk
+→ kring.com
 ```
 
 **Note to implementer:** Corey will fill in the one-line descriptions. Leave placeholders.
