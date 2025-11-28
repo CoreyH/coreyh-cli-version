@@ -15,6 +15,39 @@
     font-display: swap;
 }
 
+/* Terminus TTF - Classic terminal font for retro CRT theme */
+@font-face {
+    font-family: 'Terminus';
+    src: url('../fonts/TerminusTTF-4.49.3.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Terminus';
+    src: url('../fonts/TerminusTTF-Bold-4.49.3.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Terminus';
+    src: url('../fonts/TerminusTTF-Italic-4.49.3.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Terminus';
+    src: url('../fonts/TerminusTTF-Bold-Italic-4.49.3.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
 /* ===== RESET ===== */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -199,6 +232,126 @@
     --title-btn-close: #bf616a;
     --title-btn-min: #ebcb8b;
     --title-btn-max: #a3be8c;
+}
+
+/* ===== THEME: RETRO-CRT (Cool-Retro-Term Amber) ===== */
+.theme-retro-crt {
+    /* Base colors from cool-retro-term amber profile */
+    --bg-primary: #0a0600;
+    --bg-secondary: #0d0800;
+    --bg-tertiary: #110a00;
+    --bg-hover: #1a1000;
+
+    --text-primary: #ff8100;
+    --text-secondary: #cc6700;
+    --text-muted: #804000;
+
+    --accent: #ff9020;
+    --accent-hover: #ffaa44;
+
+    --border: #2a1800;
+    --border-strong: #3d2400;
+
+    --success: #ff8100;
+    --error: #ff4400;
+    --warning: #ffaa00;
+    --link: #ffbb55;
+
+    --title-btn-close: #ff4400;
+    --title-btn-min: #ffaa00;
+    --title-btn-max: #ff8100;
+
+    /* CRT-specific variables */
+    --crt-glow-color: #ff8100;
+    --crt-glow-intensity: 0.55;
+    --crt-scanline-opacity: 0.08;
+    --crt-flicker-intensity: 0.03;
+    --crt-curvature: 2px;
+    --crt-vignette-opacity: 0.4;
+
+    /* Use Terminus font for authentic CRT look */
+    --font-mono: 'Terminus', 'Consolas', 'Monaco', monospace;
+    --font-size: 16px;
+}
+
+/* ===== THEME: RETRO-GREEN (Classic P1 Green Phosphor) ===== */
+.theme-retro-green {
+    /* Classic green phosphor colors */
+    --bg-primary: #001100;
+    --bg-secondary: #001a00;
+    --bg-tertiary: #002200;
+    --bg-hover: #003300;
+
+    --text-primary: #33ff33;
+    --text-secondary: #22cc22;
+    --text-muted: #118811;
+
+    --accent: #44ff44;
+    --accent-hover: #66ff66;
+
+    --border: #004400;
+    --border-strong: #006600;
+
+    --success: #33ff33;
+    --error: #ff4444;
+    --warning: #ffff33;
+    --link: #66ff99;
+
+    --title-btn-close: #ff4444;
+    --title-btn-min: #ffff33;
+    --title-btn-max: #33ff33;
+
+    /* CRT-specific variables */
+    --crt-glow-color: #33ff33;
+    --crt-glow-intensity: 0.55;
+    --crt-scanline-opacity: 0.08;
+    --crt-flicker-intensity: 0.03;
+    --crt-curvature: 2px;
+    --crt-vignette-opacity: 0.4;
+
+    /* Use Terminus font for authentic CRT look */
+    --font-mono: 'Terminus', 'Consolas', 'Monaco', monospace;
+    --font-size: 16px;
+}
+
+/* ===== THEME: RETRO-PC (IBM PC/DOS Style) ===== */
+.theme-retro-pc {
+    /* Classic IBM PC blue screen colors */
+    --bg-primary: #0000aa;
+    --bg-secondary: #0000aa;
+    --bg-tertiary: #000088;
+    --bg-hover: #0000cc;
+
+    --text-primary: #aaaaaa;
+    --text-secondary: #888888;
+    --text-muted: #555588;
+
+    --accent: #ffffff;
+    --accent-hover: #ffff55;
+
+    --border: #000066;
+    --border-strong: #0000cc;
+
+    --success: #55ff55;
+    --error: #ff5555;
+    --warning: #ffff55;
+    --link: #55ffff;
+
+    --title-btn-close: #ff5555;
+    --title-btn-min: #ffff55;
+    --title-btn-max: #55ff55;
+
+    /* CRT-specific variables */
+    --crt-glow-color: #aaaaaa;
+    --crt-glow-intensity: 0.3;
+    --crt-scanline-opacity: 0.06;
+    --crt-flicker-intensity: 0.02;
+    --crt-curvature: 2px;
+    --crt-vignette-opacity: 0.3;
+
+    /* Use Terminus font for authentic CRT look */
+    --font-mono: 'Terminus', 'Consolas', 'Monaco', monospace;
+    --font-size: 16px;
 }
 
 /* ===== BASE STYLES ===== */
@@ -817,6 +970,317 @@ a:hover {
 
     .win-btn {
         width: 36px;
+    }
+}
+
+/* ===== CRT EFFECTS (for retro-crt theme) ===== */
+
+/* Scanlines overlay */
+.theme-retro-crt .terminal::after,
+.theme-retro-green .terminal::after,
+.theme-retro-pc .terminal::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, var(--crt-scanline-opacity)) 0px,
+        rgba(0, 0, 0, var(--crt-scanline-opacity)) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 100;
+    border-radius: inherit;
+}
+
+/* Secondary scanline for more authentic look */
+.theme-retro-crt .terminal::before,
+.theme-retro-green .terminal::before,
+.theme-retro-pc .terminal::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.02) 0px,
+        rgba(0, 0, 0, 0.02) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    pointer-events: none;
+    z-index: 99;
+    border-radius: inherit;
+}
+
+/* Vignette effect */
+.theme-retro-crt .terminal-body::after,
+.theme-retro-green .terminal-body::after,
+.theme-retro-pc .terminal-body::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 0%,
+        transparent 50%,
+        rgba(0, 0, 0, var(--crt-vignette-opacity)) 100%
+    );
+    pointer-events: none;
+    z-index: 50;
+}
+
+/* Screen curvature via subtle border-radius and perspective */
+.theme-retro-crt .terminal,
+.theme-retro-green .terminal,
+.theme-retro-pc .terminal {
+    border-radius: 8px / 12px;
+    box-shadow:
+        0 0 0 1px var(--border),
+        0 0 80px rgba(255, 129, 0, 0.15),
+        inset 0 0 60px rgba(0, 0, 0, 0.4),
+        0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    animation: crt-flicker 0.15s infinite;
+}
+
+/* Phosphor glow on text */
+.theme-retro-crt #output,
+.theme-retro-crt .ascii-art,
+.theme-retro-green #output,
+.theme-retro-green .ascii-art,
+.theme-retro-pc #output,
+.theme-retro-pc .ascii-art {
+    text-shadow:
+        0 0 1px var(--crt-glow-color),
+        0 0 2px var(--crt-glow-color),
+        0 0 4px rgba(255, 129, 0, 0.5),
+        0 0 8px rgba(255, 129, 0, 0.3),
+        0 0 16px rgba(255, 129, 0, 0.15);
+}
+
+/* Glow only on the input prompt, not the input field */
+.theme-retro-crt .input-prompt,
+.theme-retro-green .input-prompt,
+.theme-retro-pc .input-prompt {
+    text-shadow:
+        0 0 1px var(--crt-glow-color),
+        0 0 2px var(--crt-glow-color),
+        0 0 4px rgba(255, 129, 0, 0.5);
+}
+
+/* Extra glow on accent text */
+.theme-retro-crt #output .accent,
+.theme-retro-crt #output .cmd,
+.theme-retro-crt #output .prompt,
+.theme-retro-green #output .accent,
+.theme-retro-green #output .cmd,
+.theme-retro-green #output .prompt,
+.theme-retro-pc #output .accent,
+.theme-retro-pc #output .cmd,
+.theme-retro-pc #output .prompt {
+    text-shadow:
+        0 0 2px var(--crt-glow-color),
+        0 0 4px var(--crt-glow-color),
+        0 0 8px rgba(255, 129, 0, 0.6),
+        0 0 16px rgba(255, 129, 0, 0.4),
+        0 0 32px rgba(255, 129, 0, 0.2);
+}
+
+/* Flicker animation - subtle brightness variation */
+@keyframes crt-flicker {
+    0% { opacity: 1; }
+    5% { opacity: 0.98; }
+    10% { opacity: 1; }
+    15% { opacity: 0.97; }
+    20% { opacity: 1; }
+    50% { opacity: 0.99; }
+    55% { opacity: 1; }
+    70% { opacity: 0.98; }
+    80% { opacity: 1; }
+    90% { opacity: 0.99; }
+    100% { opacity: 1; }
+}
+
+/* Jitter animation for slight screen instability */
+@keyframes crt-jitter {
+    0% { transform: translate(0, 0); }
+    10% { transform: translate(-0.5px, 0); }
+    20% { transform: translate(0.5px, 0); }
+    30% { transform: translate(0, 0.5px); }
+    40% { transform: translate(0, -0.5px); }
+    50% { transform: translate(-0.5px, 0.5px); }
+    60% { transform: translate(0.5px, -0.5px); }
+    70% { transform: translate(0, 0); }
+    80% { transform: translate(-0.5px, 0); }
+    90% { transform: translate(0, 0); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Apply jitter to terminal content - disabled for readability */
+.theme-retro-crt .terminal-body,
+.theme-retro-green .terminal-body,
+.theme-retro-pc .terminal-body {
+    position: relative;
+}
+
+/* CRT screen "glass" reflection */
+.theme-retro-crt .terminal-body::before,
+.theme-retro-green .terminal-body::before,
+.theme-retro-pc .terminal-body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.03) 0%,
+        transparent 100%
+    );
+    pointer-events: none;
+    z-index: 51;
+}
+
+/* Brighter cursor for CRT - minimal glow on input, none on placeholder */
+.theme-retro-crt #command-input,
+.theme-retro-green #command-input,
+.theme-retro-pc #command-input {
+    caret-color: var(--crt-glow-color);
+    text-shadow: 0 0 2px var(--crt-glow-color);
+}
+
+.theme-retro-crt #command-input::placeholder,
+.theme-retro-green #command-input::placeholder,
+.theme-retro-pc #command-input::placeholder {
+    text-shadow: none;
+    opacity: 0.5;
+}
+
+/* CRT bezel effect on the frame */
+.theme-retro-crt .terminal-title,
+.theme-retro-crt .terminal-status,
+.theme-retro-crt .terminal-input,
+.theme-retro-green .terminal-title,
+.theme-retro-green .terminal-status,
+.theme-retro-green .terminal-input,
+.theme-retro-pc .terminal-title,
+.theme-retro-pc .terminal-status,
+.theme-retro-pc .terminal-input {
+    background: linear-gradient(
+        180deg,
+        var(--bg-tertiary) 0%,
+        rgba(0, 0, 0, 0.3) 100%
+    );
+}
+
+/* Glow on links */
+.theme-retro-crt a,
+.theme-retro-green a,
+.theme-retro-pc a {
+    text-shadow:
+        0 0 2px var(--link),
+        0 0 4px rgba(255, 187, 85, 0.4);
+}
+
+/* Green phosphor glow overrides */
+.theme-retro-green .terminal {
+    box-shadow:
+        0 0 0 1px var(--border),
+        0 0 80px rgba(51, 255, 51, 0.15),
+        inset 0 0 60px rgba(0, 0, 0, 0.4),
+        0 25px 50px -12px rgba(0, 0, 0, 0.7);
+}
+
+.theme-retro-green #output,
+.theme-retro-green .ascii-art {
+    text-shadow:
+        0 0 1px var(--crt-glow-color),
+        0 0 2px var(--crt-glow-color),
+        0 0 4px rgba(51, 255, 51, 0.5),
+        0 0 8px rgba(51, 255, 51, 0.3),
+        0 0 16px rgba(51, 255, 51, 0.15);
+}
+
+.theme-retro-green .input-prompt {
+    text-shadow:
+        0 0 1px var(--crt-glow-color),
+        0 0 2px var(--crt-glow-color),
+        0 0 4px rgba(51, 255, 51, 0.5);
+}
+
+.theme-retro-green #output .accent,
+.theme-retro-green #output .cmd,
+.theme-retro-green #output .prompt {
+    text-shadow:
+        0 0 2px var(--crt-glow-color),
+        0 0 4px var(--crt-glow-color),
+        0 0 8px rgba(51, 255, 51, 0.6),
+        0 0 16px rgba(51, 255, 51, 0.4),
+        0 0 32px rgba(51, 255, 51, 0.2);
+}
+
+.theme-retro-green a {
+    text-shadow:
+        0 0 2px var(--link),
+        0 0 4px rgba(102, 255, 153, 0.4);
+}
+
+/* IBM PC blue glow overrides */
+.theme-retro-pc .terminal {
+    box-shadow:
+        0 0 0 1px var(--border),
+        0 0 60px rgba(0, 0, 170, 0.3),
+        inset 0 0 80px rgba(0, 0, 0, 0.3),
+        0 25px 50px -12px rgba(0, 0, 0, 0.7);
+}
+
+.theme-retro-pc #output,
+.theme-retro-pc .ascii-art {
+    text-shadow:
+        0 0 1px var(--crt-glow-color),
+        0 0 2px rgba(170, 170, 170, 0.6),
+        0 0 4px rgba(170, 170, 170, 0.3);
+}
+
+.theme-retro-pc .input-prompt {
+    text-shadow:
+        0 0 1px var(--crt-glow-color),
+        0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.theme-retro-pc #output .accent,
+.theme-retro-pc #output .cmd,
+.theme-retro-pc #output .prompt {
+    text-shadow:
+        0 0 2px var(--crt-glow-color),
+        0 0 4px rgba(255, 255, 255, 0.5),
+        0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.theme-retro-pc a {
+    text-shadow:
+        0 0 2px var(--link),
+        0 0 4px rgba(85, 255, 255, 0.4);
+}
+
+/* Static noise overlay - optional, uses CSS pattern */
+.theme-retro-crt .terminal {
+    position: relative;
+}
+
+/* Subtle contrast boost - noise filter removed for better readability */
+.theme-retro-crt .terminal-body {
+    contrast: 1.05;
+}
+
+/* Turn off some effects for better performance if needed */
+@media (prefers-reduced-motion: reduce) {
+    .theme-retro-crt .terminal {
+        animation: none;
+    }
+    .theme-retro-crt .terminal-body {
+        animation: none;
     }
 }
 
