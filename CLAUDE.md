@@ -29,7 +29,11 @@ This is intentionally simple and dependency-free.
 ├── index.html          # Main entry point - the terminal UI
 ├── assets/
 │   ├── css/styles.css  # All styling including themes
-│   ├── js/terminal.js  # Terminal logic and commands
+│   ├── js/
+│   │   ├── core.js     # Main entry - state, DOM, initialization
+│   │   ├── commands.js # Personal commands (whoami, now, ventures, etc.)
+│   │   ├── games.js    # Games module (placeholder for upstream ports)
+│   │   └── themes.js   # Theme definitions
 │   ├── fonts/          # Terminus TTF fonts for retro themes
 │   └── images/         # Favicon, og:image, etc.
 ├── blog/               # Blog posts (markdown)
@@ -38,6 +42,15 @@ This is intentionally simple and dependency-free.
 ├── CLAUDE.md           # This file - AI context
 └── package.json        # Project metadata
 ```
+
+### JavaScript Module Structure
+
+The JS is split into ES6 modules for easier maintenance and upstream syncing:
+
+- **core.js** - Main entry point loaded by index.html. Handles state, DOM interactions, input handling, boot sequence. Imports and orchestrates other modules.
+- **commands.js** - Personal content commands (whoami, ventures, etc.) and easter eggs. Edit this for content changes.
+- **games.js** - Placeholder for games. Port upstream games (snake, tetris, space invaders) here.
+- **themes.js** - Theme name array. CSS theme definitions are in styles.css.
 
 ## Current State (v1 Complete)
 
