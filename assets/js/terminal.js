@@ -76,15 +76,15 @@ const commands = {
   I'm Corey Henderson — Partner & CTO at KRING, a venture studio in Copenhagen
   that builds startups in health tech and green tech.
 
-  Day-to-day I help founders ship real products before we invest, run tech across
-  our portfolio companies, and do a lot of hands-on building myself. 30 years of
-  making software, still figuring out how to do it properly.
+  I split my time between shipping our own zero-to-one products, supporting
+  portfolio companies, early-stage investing, and writing code to glue it all
+  together. 
 
   I also run RecordSetter — a world records platform I co-founded in 2008 that
   gets about 500k visitors a month. It was my full-time job for nearly a decade;
   now I run it solo on Saturdays with a lot of AI help.
 
-  American by origin, enthusiastic cyclist by choice.
+  American. Copenhagen. It makes more sense than it sounds.
 
   type <span class="cmd">now</span> to see what i'm currently up to.
 `;
@@ -127,7 +127,7 @@ const commands = {
   • <span class="accent">Triba</span> — [description pending]
   • <span class="accent">Carelog</span> — [description pending]
 
-  My job: make sure we can go from thesis to live product with tiny,
+  My job: make sure we can go from thesis to live product with small,
   AI-augmented teams. I'm hands-on across all of them.
 
   → <a href="https://kring.com" target="_blank" rel="noopener">kring.com</a>
@@ -142,7 +142,7 @@ const commands = {
 
   Cosmica is the internal operating system we're building at KRING.
 
-  Yes, the grandiose name is intentional.
+  Yes, the grandiose name is tongue-in-cheek.
 
   Pieces currently in motion:
 
@@ -152,7 +152,7 @@ const commands = {
   • <span class="accent">Translation pipelines</span> — Strapi + DeepL + LLM review for localized content
   • <span class="accent">Data spine</span> — Postgres + event pipelines feeding everything above
 
-  Philosophy: small human team, heavy AI tooling, deliberately boring infrastructure.
+  Philosophy: small human team, heavy AI tooling, simple infrastructure.
 `;
     },
   },
@@ -190,11 +190,11 @@ const commands = {
 
   Things I build, maintain, or tinker with:
 
-  • <span class="accent">T.A.B.S.</span> — an n8n system that watches my computer activity + calendar
+  • <span class="accent">T.A.B.S.</span> — an AI-powered system that watches my computer activity + calendar
     and writes time entries automatically. Mostly works.
 
   • <span class="accent">Image Sifter</span> — GPU pipeline for sorting thousands of photos using
-    vision models. Dormant but real.
+    vision models. Dormant but interesting.
 
   • <span class="accent">Various agentic dev experiments</span> — MCP setups, Claude Code workflows,
     container-based agents for testing and shipping features.
@@ -215,11 +215,9 @@ const commands = {
   • <span class="accent">Run Coach</span> — pulls Strava data, nags me about easy miles and recovery
   • <span class="accent">Email Triage</span> — surfaces what matters, drafts responses, archives noise
   • <span class="accent">Voicemail Transcriber</span> — turns voice messages into readable text + summaries
-  • <span class="accent">TimeCop (T.A.B.S.)</span> — watches system activity and logs time to projects
-  • <span class="accent">Meeting Scribe</span> — summarizes calls, extracts action items
+  • <span class="accent">T.A.B.S.</span> — watches system activity and logs time to projects
 
-  None of them are magic. All of them are n8n workflows and API calls held
-  together with duct tape. They save me hours every week.
+  Watch this space.
 `;
     },
   },
@@ -231,8 +229,8 @@ const commands = {
 
   My current defaults for new projects:
 
-  <span class="muted">Frontend:</span>  Next.js, TypeScript, App Router, Tailwind
-  <span class="muted">Backend:</span>   Node LTS, Express or tRPC, Postgres when data matters
+  <span class="muted">Frontend:</span>  Next.js, TypeScript, App Router, Tailwind, Shadcn/UI
+  <span class="muted">Backend:</span>   Node LTS + tRPC, Postgres or Supabase
   <span class="muted">Infra:</span>     Render, Cloudflare, Azure or GCP depending on the venture
   <span class="muted">AI:</span>        Anthropic + OpenAI in the cloud, local runs on a 4060 Ti when needed
   <span class="muted">Glue:</span>      n8n, GitHub Actions, devcontainers
@@ -240,7 +238,7 @@ const commands = {
   <span class="muted">Development:</span> Cursor + Claude as primary coding partners, WSL2 on Windows,
   occasionally macOS or Linux on a Framework laptop.
 
-  Philosophy: keep infrastructure boring so we can make the product interesting.
+  Philosophy: keep infrastructure simple so we can focus on the product and PMF.
 `;
     },
   },
@@ -270,7 +268,7 @@ const commands = {
       return `
   <span class="bold white">Speaking</span>
 
-  I occasionally give talks on AI-first development and venture building.
+  I occasionally give talks on various topics. Lately, that's been AI-first development and venture building.
 
   Most recent:
 
@@ -313,14 +311,14 @@ const commands = {
 
   American in Copenhagen since 2020.
 
-  I moved here with my family for what was supposed to be a year or two.
-  Five years later we're still here. The kids bike to school, we've survived
-  several Danish winters, and I've mostly accepted that 4pm darkness is a
-  personality trait.
+  I moved here with my family from the US via Belgrade, Serbia during the height of the pandemic.
+  Five years later we are all still loving it here. The kids bike to school, their Danish is 
+  excellent, mine, not so much. My wife Emily is thriving in her career as a photographer
+  — <a href="https://emilywilsonphotography.com" target="_blank" rel="noopener">emilywilsonphotography.com</a>
 
   We live near the harbor. I bike everywhere — it's one of my favorite things
-  about living here. Biked everywhere I've lived, but Copenhagen makes it easy. The coffee is excellent,
-  the bureaucracy is efficient, and I still say "tomato" wrong.
+  about living here. The coffee is excellent, the food is great,
+  the bureaucracy is efficient, and I still can't pronounce anything properly.
 
   If you're thinking about relocating to Copenhagen for work, happy to chat
   about the realities.
@@ -339,9 +337,7 @@ const commands = {
   • <a href="https://x.com/coreyh" target="_blank" rel="noopener">X/Twitter</a>
   • <a href="https://github.com/CoreyH" target="_blank" rel="noopener">GitHub</a>
 
-  I'm not on Calendly. Email or DM is best — I have to be dragged into meetings.
-
-  If you're a founder building health tech or green tech and want to jam on
+  If you're a founder building health tech or green tech and want to talk 
   product, AI workflows, or what working with KRING looks like, reach out.
 `;
     },
@@ -447,7 +443,7 @@ const commands = {
   vim: {
     desc: "editor wars",
     fn: () =>
-      '\n  <span class="accent">vim is great.</span> but this isn\'t that kind of terminal.\n',
+      '\n  <span class="accent">vim is not for everyone.</span> this isn\'t that kind of terminal.\n',
   },
   emacs: {
     desc: "editor wars",
@@ -503,8 +499,8 @@ const commands = {
   <span class="accent">      (_)</span>         ---------------
   <span class="accent">   ___ _  ___</span>     OS: Human 1.0
   <span class="accent">  / __| |/ _ \\</span>    Host: Copenhagen
-  <span class="accent">  \\__ \\ |  __/</span>    Kernel: Coffee-powered
-  <span class="accent">  |___/_|\\___|</span>    Uptime: 30+ years coding
+  <span class="accent">  \\__ \\ |  __/</span>    Kernel: My own
+  <span class="accent">  |___/_|\\___|</span>    Uptime: Since 1975
                     Shell: bash
                     Terminal: coreyh-cli
 `,
