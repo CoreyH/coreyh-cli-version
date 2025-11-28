@@ -297,7 +297,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.getElementById("terminal").addEventListener("click", (e) => {
-    if (e.target.tagName !== "A" && !e.target.closest(".cmd-shortcut")) {
+    const inputLine = document.querySelector(".terminal-input");
+    // Don't focus input if it's hidden (game mode) or clicking links/shortcuts
+    if (e.target.tagName !== "A" && !e.target.closest(".cmd-shortcut") && inputLine.style.display !== "none") {
       input.focus();
     }
   });
