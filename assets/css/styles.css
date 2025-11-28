@@ -48,6 +48,15 @@
     font-display: swap;
 }
 
+/* Perfect DOS VGA 437 - Authentic IBM PC/DOS font */
+@font-face {
+    font-family: 'Perfect DOS VGA 437';
+    src: url('../fonts/Perfect DOS VGA 437.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* ===== RESET ===== */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -349,8 +358,8 @@
     --crt-curvature: 2px;
     --crt-vignette-opacity: 0.3;
 
-    /* Use Terminus font for authentic CRT look */
-    --font-mono: 'Terminus', 'Consolas', 'Monaco', monospace;
+    /* Use Perfect DOS VGA 437 for authentic IBM PC look */
+    --font-mono: 'Perfect DOS VGA 437', 'Consolas', 'Monaco', monospace;
     --font-size: 16px;
 }
 
@@ -1262,6 +1271,25 @@ a:hover {
     text-shadow:
         0 0 2px var(--link),
         0 0 4px rgba(85, 255, 255, 0.4);
+}
+
+/* Subtle glow on muted/secondary text for retro themes */
+.theme-retro-crt #output .muted,
+.theme-retro-crt .status-hint,
+.theme-retro-crt .terminal-status {
+    text-shadow: 0 0 2px rgba(255, 129, 0, 0.3);
+}
+
+.theme-retro-green #output .muted,
+.theme-retro-green .status-hint,
+.theme-retro-green .terminal-status {
+    text-shadow: 0 0 2px rgba(51, 255, 51, 0.3);
+}
+
+.theme-retro-pc #output .muted,
+.theme-retro-pc .status-hint,
+.theme-retro-pc .terminal-status {
+    text-shadow: 0 0 2px rgba(170, 170, 170, 0.3);
 }
 
 /* Static noise overlay - optional, uses CSS pattern */
