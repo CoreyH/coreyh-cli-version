@@ -86,13 +86,14 @@ This is intentionally simple and dependency-free.
 4. **amber** - Warm retro orange
 5. **matrix** - Green digital rain
 6. **contrast** - High contrast black/white
+7. **ubuntu** - Classic aubergine purple with Ubuntu Mono font
 
 ### Retro CRT Themes
 Inspired by [cool-retro-term](https://github.com/Swordfish90/cool-retro-term), these themes include authentic CRT effects: scanlines, phosphor glow, vignette, screen curvature, and flicker. They use the Terminus font for that classic terminal look.
 
-7. **retro-crt** - Amber phosphor (cool-retro-term style)
-8. **retro-green** - Green P1 phosphor
-9. **retro-pc** - IBM PC/DOS blue screen
+8. **retro-crt** - Amber phosphor (cool-retro-term style)
+9. **retro-green** - Green P1 phosphor
+10. **retro-pc** - IBM PC/DOS blue screen
 
 ## Git Remotes
 

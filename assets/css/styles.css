@@ -57,6 +57,23 @@
     font-display: swap;
 }
 
+/* Ubuntu Mono - Classic Ubuntu terminal font */
+@font-face {
+    font-family: 'Ubuntu Mono';
+    src: url('https://fonts.cdnfonts.com/s/14905/UbuntuMono-R.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ubuntu Mono';
+    src: url('https://fonts.cdnfonts.com/s/14905/UbuntuMono-B.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* ===== RESET ===== */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -241,6 +258,40 @@
     --title-btn-close: #bf616a;
     --title-btn-min: #ebcb8b;
     --title-btn-max: #a3be8c;
+}
+
+/* ===== THEME: UBUNTU (Classic Aubergine) ===== */
+.theme-ubuntu {
+    /* Aubergine purple palette */
+    --bg-primary: #2c001e;
+    --bg-secondary: #300a24;
+    --bg-tertiary: #3c1130;
+    --bg-hover: #4a1a3d;
+
+    /* Warm grey text */
+    --text-primary: #eeeeec;
+    --text-secondary: #d3d7cf;
+    --text-muted: #8f8b88;
+
+    /* Teal green accent (Ubuntu terminal style) */
+    --accent: #2eb398;
+    --accent-hover: #3fcaa8;
+
+    --border: #4a1a3d;
+    --border-strong: #5c2249;
+
+    /* Ubuntu orange for links/success */
+    --success: #e95420;
+    --error: #ef2929;
+    --warning: #f5c211;
+    --link: #e95420;
+
+    --title-btn-close: #ef2929;
+    --title-btn-min: #f5c211;
+    --title-btn-max: #e95420;
+
+    /* Ubuntu Mono font */
+    --font-mono: 'Ubuntu Mono', 'Consolas', 'Monaco', monospace;
 }
 
 /* ===== THEME: RETRO-CRT (Cool-Retro-Term Amber) ===== */
