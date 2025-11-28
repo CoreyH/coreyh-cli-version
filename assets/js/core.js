@@ -106,9 +106,14 @@ function scrollToBottom() {
 
 // Theme management
 function setTheme(themeName) {
+  const previousTheme = state.theme;
   document.body.className = `theme-${themeName}`;
   state.theme = themeName;
   localStorage.setItem("terminal-theme", themeName);
+  // Track theme changes
+  if (window.posthog && previousTheme !== themeName) {
+    posthog.capture('theme_changed', { theme: themeName, from: previousTheme });
+  }
 }
 
 function cycleTheme() {
@@ -165,11 +170,22 @@ async function executeCommand(input) {
   );
 
   if (commands[cmd]) {
+    // Track command usage
+    if (window.posthog) {
+      posthog.capture('command_executed', {
+        command: cmd,
+        has_args: args.length > 0,
+      });
+    }
     const result = await commands[cmd].fn(args);
     if (result) {
       appendOutput(result + "\n");
     }
   } else {
+    // Track unknown commands
+    if (window.posthog) {
+      posthog.capture('command_not_found', { attempted: cmd });
+    }
     appendOutput(
       `\n  <span class="error">command not found: ${cmd}</span>\n  type <span class="cmd">help</span> for available commands.\n\n`,
     );
