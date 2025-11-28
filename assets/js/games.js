@@ -291,6 +291,7 @@ function startSnakeGame() {
   const terminalBody = document.getElementById("terminal-body");
   const output = document.getElementById("output");
   const inputLine = document.querySelector(".terminal-input");
+  const commandInput = document.getElementById("command-input");
 
   const savedContent = output.innerHTML;
   inputLine.style.display = "none";
@@ -501,6 +502,7 @@ function startTetris() {
   const terminalBody = document.getElementById("terminal-body");
   const output = document.getElementById("output");
   const inputLine = document.querySelector(".terminal-input");
+  const commandInput = document.getElementById("command-input");
 
   const savedContent = output.innerHTML;
   inputLine.style.display = "none";
